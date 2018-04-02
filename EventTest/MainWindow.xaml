@@ -3,10 +3,72 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EventTest"
+        xmlns:eventTest="clr-namespace:EventTest"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        d:DataContext="{d:DesignData Type={x:Type eventTest:MainViewModel}}"
+        Title="Event Test"
+        Height="350" 
+        Width="525">
+    
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         
+        <!--Options-->
+        <Grid Grid.Row="0">
+            
+            <Grid.Resources>
+                <Style TargetType="{x:Type RadioButton}">
+                    <Setter Property="Margin" Value="8,0,0,0" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                </Style>
+            </Grid.Resources>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Grid.Column="0"
+                       VerticalAlignment="Center"
+                       Text="Events Assignments Options:" />
+            
+            <RadioButton x:Name="RadioButtonSimple"
+                         Grid.Column="1"
+                         IsChecked="True"
+                         Checked="RadioButtonCheckedChanged"
+                         Content="Simple" />
+
+            <RadioButton x:Name="RadioButtonClass"
+                         Grid.Column="2"
+                         IsChecked="True"
+                         Content="Class" />
+
+            <RadioButton x:Name="RadioButtonVariable"
+                         Grid.Column="3"
+                         IsChecked="True"
+                         Content="Variable" />
+        </Grid>
+        
+        <Grid Grid.Row="1" Margin="0,8,0,8">
+            <Grid.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="120" />
+                    <Setter Property="Height" Value="24" />
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        </Grid>
     </Grid>
 </Window>
